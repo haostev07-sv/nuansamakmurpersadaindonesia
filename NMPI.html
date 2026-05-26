@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT Nuansa Makmur Persada Indonesia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f9fb;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+header{
+    width:100%;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+.navbar{
+    width:90%;
+    margin:auto;
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:700;
+    color:#0b3d91;
+}
+
+.logo span{
+    color:#e63946;
+}
+
+.nav-menu{
+    display:flex;
+    gap:30px;
+}
+
+.nav-menu a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-menu a:hover{
+    color:#0b3d91;
+}
+
+.btn-nav{
+    padding:10px 22px;
+    border:none;
+    border-radius:30px;
+    background:#0b3d91;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    margin-top:80px;
+    height:90vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:18px;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.hero-btn{
+    margin-top:30px;
+    display:inline-block;
+    padding:15px 35px;
+    background:#e63946;
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#c1121f;
+}
+
+/* SECTION */
+section{
+    width:90%;
+    margin:auto;
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:45px;
+    color:#111;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+/* ABOUT */
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-text h3{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    line-height:1.9;
+    color:#555;
+    margin-bottom:20px;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.service-box{
+    background:#fff;
+    padding:40px 30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.4s;
+    text-align:center;
+}
+
+.service-box:hover{
+    transform:translateY(-10px);
+}
+
+.service-icon{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.service-box h3{
+    margin-bottom:15px;
+    color:#0b3d91;
+}
+
+/* PORTFOLIO */
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.portfolio-box{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+}
+
+.portfolio-box img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.portfolio-box:hover img{
+    transform:scale(1.1);
+}
+
+.portfolio-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    opacity:0;
+    transition:0.5s;
+    text-align:center;
+    padding:20px;
+}
+
+.portfolio-box:hover .portfolio-overlay{
+    opacity:1;
+}
+
+/* STATS */
+.stats{
+    background:#0b3d91;
+    color:#fff;
+    border-radius:30px;
+    padding:60px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.stats h3{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+/* FAQ */
+.faq-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.faq{
+    background:#fff;
+    margin-bottom:20px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.07);
+}
+
+.faq h4{
+    margin-bottom:10px;
+    color:#0b3d91;
+}
+
+/* CONTACT */
+.contact{
+    background:#fff;
+    border-radius:25px;
+    padding:50px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-info h3{
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+.contact-info p{
+    margin-bottom:15px;
+    color:#555;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+form button{
+    padding:15px 30px;
+    border:none;
+    background:#0b3d91;
+    color:#fff;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* FOOTER */
+footer{
+    background:#0f172a;
+    color:#fff;
+    padding:40px 20px;
+    text-align:center;
+    margin-top:80px;
+}
+
+footer{
+    background:#0f172a;
+    color:#fff;
+    padding:40px 20px;
+    text-align:center;
+    margin-top:80px;
+}
+
+/* CSS TOMBOL CEO */
+.ceo-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.ceo-btn:hover{
+    background:#0f172a;
+    transform:translateY(-3px);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .hero-content h1{
+        font-size:40px;
+    }
+
+    .about,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-menu{
+        display:none;
+    }
+}
+/* ========================= */
+/* DETAIL SERVICES */
+/* ========================= */
+
+.service-detail-section{
+    width:90%;
+    margin:auto;
+    padding:40px 0 100px;
+}
+
+.service-detail-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    margin-bottom:100px;
+}
+
+.service-detail-box.reverse .detail-image{
+    order:2;
+}
+
+.service-detail-box.reverse .detail-content{
+    order:1;
+}
+
+.detail-image img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.detail-content h2{
+    font-size:40px;
+    margin-bottom:20px;
+    color:#0b3d91;
+}
+
+.detail-content p{
+    line-height:1.9;
+    color:#555;
+    margin-bottom:25px;
+}
+
+.detail-content ul{
+    list-style:none;
+}
+
+.detail-content ul li{
+    margin-bottom:15px;
+    font-size:17px;
+    color:#222;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .service-detail-box{
+        grid-template-columns:1fr;
+    }
+
+    .service-detail-box.reverse .detail-image,
+    .service-detail-box.reverse .detail-content{
+        order:unset;
+    }
+
+    .detail-content h2{
+        font-size:32px;
+    }
+}
+
+/* DIREKTUR */
+
+.director-section{
+    padding:80px 10%;
+    background:#f8fafc;
+}
+
+.director-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.director-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.director-content h2{
+    font-size:42px;
+    color:#0f172a;
+    margin-bottom:15px;
+}
+
+.director-content h3{
+    font-size:28px;
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.director-content p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:20px;
+    color:#333;
+}
+
+.director-content ul{
+    list-style:none;
+}
+
+.director-content ul li{
+    margin-bottom:12px;
+    font-size:17px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="navbar">
+        <div class="logo">
+            PT <span>Nuansa Makmur Persada Indonesia</span>
+        </div>
+
+        <div class="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#about">Company</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <button class="btn-nav">Company</button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Building The Future With Integrity</h1>
+
+        <p>
+            PT Nuansa Makmur Persada Indonesia merupakan perusahaan profesional
+            yang bergerak di bidang konstruksi, pembangunan infrastruktur,
+            dan layanan proyek industri dengan standar kualitas tinggi.
+        </p>
+
+        <a href="#about" class="hero-btn">Explore More</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="section-title">
+        <h2>About Company</h2>
+        <p>Perusahaan konstruksi profesional terpercaya di Indonesia</p>
+    </div>
+
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop">
+
+        <div class="about-text">
+            <h3>PT Nuansa Makmur Persada Indonesia</h3>
+
+            <p>
+                Kami adalah perusahaan yang bergerak dalam bidang jasa konstruksi,
+                pembangunan gedung, infrastruktur jalan, proyek industri,
+                dan manajemen proyek profesional.
+            </p>
+
+            <p>
+                Dengan dukungan tenaga ahli berpengalaman serta teknologi modern,
+                kami berkomitmen memberikan hasil terbaik dengan standar kualitas,
+                keamanan, dan ketepatan waktu yang tinggi.
+            </p>
+
+            <p>
+                Kepercayaan klien menjadi prioritas utama kami dalam membangun
+                proyek yang berkelanjutan dan bernilai tinggi.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+
+    <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Layanan profesional terbaik untuk proyek Anda</p>
+    </div>
+
+    <div class="services">
+
+        <div class="service-box">
+            <div class="service-icon">🏢</div>
+            <h3>Konstruksi Gedung</h3>
+            <p>
+                Pembangunan gedung komersial, industri,
+                dan perkantoran dengan kualitas premium.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <div class="service-icon">🛣️</div>
+            <h3>Infrastruktur Jalan</h3>
+            <p>
+                Pembangunan dan perawatan jalan raya,
+                akses industri, serta proyek transportasi.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <div class="service-icon">🏗️</div>
+            <h3>Manajemen Proyek</h3>
+            <p>
+                Pengawasan proyek profesional untuk memastikan
+                kualitas dan ketepatan pengerjaan.
+            </p>
+        </div>
+
+        <div class="service-box">
+            <div class="service-icon">⚙️</div>
+            <h3>Proyek Industri</h3>
+            <p>
+                Menangani proyek industri modern dengan sistem
+                kerja profesional dan efisien.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+
+    <div class="section-title">
+        <h2>Our Portfolio</h2>
+        <p>Beberapa proyek yang telah kami kerjakan</p>
+    </div>
+
+    <div class="portfolio">
+
+        <div class="portfolio-box">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop">
+
+            <div class="portfolio-overlay">
+                <div>
+                    <h3>Proyek Gedung Industri</h3>
+                    <p>Pembangunan fasilitas industri modern</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-box">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop">
+
+            <div class="portfolio-overlay">
+                <div>
+                    <h3>Pembangunan Infrastruktur</h3>
+                    <p>Proyek jalan dan fasilitas umum</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-box">
+            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=2071&auto=format&fit=crop">
+
+            <div class="portfolio-overlay">
+                <div>
+                    <h3>Manajemen Konstruksi</h3>
+                    <p>Pengawasan dan manajemen proyek</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+<section>
+
+    <div class="stats">
+
+        <div>
+            <h3>15+</h3>
+            <p>Tahun Pengalaman</p>
+        </div>
+
+        <div>
+            <h3>120+</h3>
+            <p>Proyek Selesai</p>
+        </div>
+
+        <div>
+            <h3>50+</h3>
+            <p>Tenaga Profesional</p>
+        </div>
+
+        <div>
+            <h3>100%</h3>
+            <p>Kepuasan Klien</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FAQ -->
+<section>
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Pertanyaan yang sering diajukan</p>
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq">
+            <h4>Apakah perusahaan menerima proyek luar kota?</h4>
+            <p>
+                Ya, kami menerima pengerjaan proyek di seluruh wilayah Indonesia.
+            </p>
+        </div>
+
+        <div class="faq">
+            <h4>Bagaimana sistem pengerjaan proyek?</h4>
+            <p>
+                Kami menggunakan sistem profesional dengan timeline,
+                pengawasan, dan laporan proyek secara berkala.
+            </p>
+        </div>
+
+        <div class="faq">
+            <h4>Apakah tersedia layanan konsultasi?</h4>
+            <p>
+                Tersedia layanan konsultasi proyek konstruksi dan manajemen.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>Hubungi kami untuk konsultasi proyek Anda</p>
+    </div>
+
+    <div class="contact">
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+                <h3>PT Nuansa Makmur Persada Indonesia</h3>
+
+                <p>📍 Indonesia</p>
+                <p>📞 +62 817-0307-9911</p>
+                <p>📧 info@nuansamakmurpersada.co.id</p>
+                <p>🌐 www.nuansamakmurpersada.co.id</p>
+            </div>
+
+            <form>
+                <input type="text" placeholder="Nama Lengkap">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Subjek">
+                <textarea rows="5" placeholder="Pesan"></textarea>
+
+                <button type="submit">Kirim Pesan</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- DETAIL SERVICES SECTION -->
+<!-- TAMBAHKAN DI BAWAH SERVICES -->
+<!-- ========================= -->
+
+<section class="service-detail-section">
+
+    <!-- KONSTRUKSI GEDUNG -->
+    <div class="service-detail-box" id="konstruksi-gedung">
+
+        <div class="detail-image">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop">
+        </div>
+
+        <div class="detail-content">
+            <h2>Konstruksi Gedung</h2>
+
+            <p>
+                PT Nuansa Makmur Persada Indonesia menyediakan layanan
+                pembangunan gedung profesional untuk kebutuhan industri,
+                komersial, perkantoran, apartemen, dan fasilitas publik.
+            </p>
+
+            <ul>
+                <li>✔ Pembangunan Gedung Bertingkat</li>
+                <li>✔ Gedung Perkantoran Modern</li>
+                <li>✔ Bangunan Industri</li>
+                <li>✔ Renovasi dan Maintenance</li>
+                <li>✔ Struktur Beton dan Baja</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFRASTRUKTUR JALAN -->
+    <div class="service-detail-box reverse" id="infrastruktur-jalan">
+
+        <div class="detail-image">
+            <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop">
+        </div>
+
+        <div class="detail-content">
+            <h2>Infrastruktur Jalan</h2>
+
+            <p>
+                Kami melayani pembangunan infrastruktur jalan raya,
+                akses industri, dan fasilitas transportasi dengan
+                standar kualitas nasional.
+            </p>
+
+            <ul>
+                <li>✔ Pembangunan Jalan Raya</li>
+                <li>✔ Jalan Kawasan Industri</li>
+                <li>✔ Drainase dan Saluran Air</li>
+                <li>✔ Pengaspalan Profesional</li>
+                <li>✔ Pemeliharaan Infrastruktur</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- MANAJEMEN PROYEK -->
+    <div class="service-detail-box" id="manajemen-proyek">
+
+        <div class="detail-image">
+            <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?q=80&w=2071&auto=format&fit=crop">
+        </div>
+
+        <div class="detail-content">
+            <h2>Manajemen Proyek</h2>
+
+            <p>
+                Tim profesional kami memastikan proyek berjalan
+                tepat waktu, sesuai anggaran, dan memenuhi standar
+                keselamatan serta kualitas terbaik.
+            </p>
+
+            <ul>
+                <li>✔ Pengawasan Lapangan</li>
+                <li>✔ Quality Control</li>
+                <li>✔ Manajemen Timeline</li>
+                <li>✔ Pengelolaan SDM</li>
+                <li>✔ Pelaporan Proyek Berkala</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROYEK INDUSTRI -->
+    <div class="service-detail-box reverse" id="proyek-industri">
+
+        <div class="detail-image">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop">
+        </div>
+
+        <div class="detail-content">
+            <h2>Proyek Industri</h2>
+
+            <p>
+                Kami menangani berbagai proyek industri modern
+                dengan teknologi terbaru dan tenaga kerja profesional
+                untuk hasil maksimal.
+            </p>
+
+            <ul>
+                <li>✔ Pabrik dan Gudang</li>
+                <li>✔ Fasilitas Industri</li>
+                <li>✔ Konstruksi Baja Industri</li>
+                <li>✔ Sistem Mekanikal & Elektrikal</li>
+                <li>✔ Instalasi Industri Modern</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DIREKTUR UTAMA -->
+<section class="director-section">
+
+    <div class="director-box">
+
+        <div class="director-image">
+            <img src="stevenhao.jpg">
+        </div>
+
+        <div class="director-content">
+            <h2>Chief Executive Officer</h2>
+
+            <h3>Steven Hao</h3>
+
+            <p>
+                Direktur Utama PT Nuansa Makmur Persada Indonesia
+                yang berpengalaman dalam pengembangan proyek
+                konstruksi, infrastruktur, dan industri modern
+                dengan standar profesional tinggi.
+            </p>
+
+            <ul>
+                <li>✔ Leadership & Management</li>
+                <li>✔ Project Development</li>
+                <li>✔ Business Strategy</li>
+                <li>✔ Industrial Construction</li>
+                <li>✔ Professional Team Management</li>
+            </ul>
+	<a href="https://wa.me/6281703079911"
+	class="ceo-btn">
+		Hubungi Direktur
+	</a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FOOTER -->
+<footer>
+    © 2026 PT Nuansa Makmur Persada Indonesia. All Rights Reserved.
+</footer>
+
+</body>
+</html>
